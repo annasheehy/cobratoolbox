@@ -64,8 +64,8 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="The COBRA Toolbox" href="index.html"/>
-        <link rel="next" title="How to cite" href="cite.html"/>
-        <link rel="prev" title="Tutorials" href="tutorials/index.html"/> 
+        <link rel="next" title="Development Plan" href="plan.html"/>
+        <link rel="prev" title="FAQ" href="faq.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -147,12 +147,39 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
               </ul>
-              <ul class="current">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#solver-compatibility">Solver compatibility</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/index.html">Functions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Using the Toolbox</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="submodules/index.html">Submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-contribute-to-the-cobra-toolbox">How to contribute to the COBRA Toolbox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-the-contribution-workflow">Overview of the contribution workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fork-the-cobra-toolbox-repository">1. Fork the COBRA Toolbox repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-your-fork-locally">2. Clone your fork locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-your-code-to-the-correct-folder-in-src">3. Add your code to the correct folder in <code class="docutils literal notranslate"><span class="pre">src</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-test-for-every-new-code-module">4. Add a test for every new code module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commit-and-push-your-changes">5. Commit and push your changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-a-pull-request">6. Open a pull request</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#address-review-comments">7. Address review comments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#contribute-using-matlab-devtools">Contribute using MATLAB.devTools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unified-cobra-model-field-specification">Unified COBRA model field specification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fields-in-the-model-structure">Fields in the model structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-specific-fields">Model Specific Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-support">Field Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-fields">Additional fields</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guide-for-writing-a-test">Guide for writing a test</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prepare-the-test-define-requirements">Prepare the test (define requirements)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#test-if-an-output-is-correct">Test if an output is correct</a></li>
@@ -185,15 +212,16 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="plan.html">Development Plan</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project Information</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="cite.html">How to cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citations.html">Citations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="funding.html">Funding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plan.html">Development Plan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Software Development Life Cycle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
-<li class="toctree-l1"><a class="reference internal" href="citations.html">Citations</a></li>
 </ul>
 
           
@@ -229,7 +257,229 @@
             
   <section id="how-to-contribute">
 <h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this heading">¶</a></h1>
-<p>👍 🎉 First off, thanks for taking the time to contribute to <a class="reference external" href="https://github.com/opencobra/cobratoolbox">The COBRA Toolbox</a>! 🎉 👍</p>
+<section id="how-to-contribute-to-the-cobra-toolbox">
+<h2>How to contribute to the COBRA Toolbox<a class="headerlink" href="#how-to-contribute-to-the-cobra-toolbox" title="Permalink to this heading">¶</a></h2>
+<p>This guide explains, step by step, how to contribute code to the COBRA Toolbox:
+how to fork the repository, work on your changes locally, place your code in the
+correct folder inside <code class="docutils literal notranslate"><span class="pre">src</span></code>, add tests, and open a pull request (PR).</p>
+<section id="overview-of-the-contribution-workflow">
+<h3>Overview of the contribution workflow<a class="headerlink" href="#overview-of-the-contribution-workflow" title="Permalink to this heading">¶</a></h3>
+<p>The typical workflow for contributing is:</p>
+<ol class="arabic simple">
+<li><p>Fork the COBRA Toolbox repository on GitHub.</p></li>
+<li><p>Clone your fork to your local machine.</p></li>
+<li><p>Add your code to the appropriate subfolder of <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p></li>
+<li><p>Add tests for your new code (see <a class="reference internal" href="guides/testGuide.html#testguide"><span class="std std-ref">Guide for writing a test</span></a>).</p></li>
+<li><p>Commit your changes locally.</p></li>
+<li><p>Push your changes to your fork on GitHub.</p></li>
+<li><p>Open a pull request to the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch of the COBRA Toolbox repository.</p></li>
+<li><p>Address any review comments from the maintainers.</p></li>
+</ol>
+<p>The following sections describe each step in more detail.</p>
+</section>
+<section id="fork-the-cobra-toolbox-repository">
+<h3>1. Fork the COBRA Toolbox repository<a class="headerlink" href="#fork-the-cobra-toolbox-repository" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Go to the main COBRA Toolbox repository on GitHub:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/opencobra/cobratoolbox">https://github.com/opencobra/cobratoolbox</a></p></li>
+</ul>
+</li>
+<li><p>In the top right corner, click the <strong>Fork</strong> button.</p></li>
+<li><p>Choose your GitHub account as the destination.</p></li>
+<li><p>GitHub will create a copy of the COBRA Toolbox under your account, for example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/&lt;your-username&gt;/cobratoolbox</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>All your changes will be pushed to this fork.</p>
+</section>
+<section id="clone-your-fork-locally">
+<h3>2. Clone your fork locally<a class="headerlink" href="#clone-your-fork-locally" title="Permalink to this heading">¶</a></h3>
+<p>To work on the code, clone your fork to your local machine.</p>
+<ol class="arabic">
+<li><p>Open a terminal.</p></li>
+<li><p>Run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-username&gt;/cobratoolbox.git
+<span class="nb">cd</span><span class="w"> </span>cobratoolbox
+</pre></div>
+</div>
+</li>
+<li><p>Add the original repository as an <code class="docutils literal notranslate"><span class="pre">upstream</span></code> remote so that you can pull in future updates:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/opencobra/cobratoolbox.git
+git<span class="w"> </span>fetch<span class="w"> </span>upstream
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="add-your-code-to-the-correct-folder-in-src">
+<h3>3. Add your code to the correct folder in <code class="docutils literal notranslate"><span class="pre">src</span></code><a class="headerlink" href="#add-your-code-to-the-correct-folder-in-src" title="Permalink to this heading">¶</a></h3>
+<p>All new COBRA Toolbox code should be added under the <code class="docutils literal notranslate"><span class="pre">src</span></code> folder. The main
+subfolders under <code class="docutils literal notranslate"><span class="pre">src</span></code> are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">analysis</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dataIntegration</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">design</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reconstruction</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">visualization</span></code></p></li>
+</ul>
+<p>It is recommended to create a <strong>new subfolder</strong> inside the most appropriate
+parent folder for your project. This keeps the toolbox organised and makes it
+easier for others to navigate the code.</p>
+<p>Below is guidance on when to use each folder.</p>
+<p><strong>3.1. src/analysis</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">analysis</span></code> for methods that analyse existing metabolic models. Examples:</p>
+<ul class="simple">
+<li><p>Flux balance analysis, flux variability analysis, phenotype simulations.</p></li>
+<li><p>Comparison pipelines, performance profiling.</p></li>
+<li><p>Statistical or diagnostic analyses.</p></li>
+</ul>
+<p>Suggested structure:
+<code class="docutils literal notranslate"><span class="pre">src/analysis/myNewAnalysisTool/</span></code></p>
+<p><strong>3.2. src/base</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">base</span></code> for shared utilities and core methods needed across the toolbox.
+Examples include:</p>
+<ul class="simple">
+<li><p>General-purpose helper functions.</p></li>
+<li><p>IO utilities used by multiple modules.</p></li>
+<li><p>Shared mathematical or solver-related helper functions.</p></li>
+</ul>
+<p>Suggested structure:
+<code class="docutils literal notranslate"><span class="pre">src/base/myUtilityFunctions/</span></code></p>
+<p><strong>3.3. src/dataIntegration</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">dataIntegration</span></code> for code that integrates omics or experimental data with
+a model. Examples:</p>
+<ul class="simple">
+<li><p>Transcriptomics-, proteomics-, or metabolomics-based integration.</p></li>
+<li><p>Condition-specific model building.</p></li>
+<li><p>Data-driven constraint generation.</p></li>
+</ul>
+<p>Suggested structure:
+<code class="docutils literal notranslate"><span class="pre">src/dataIntegration/myIntegrationPipeline/</span></code></p>
+<p><strong>3.4. src/design</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">design</span></code> for algorithms that propose modifications or interventions.
+Examples:</p>
+<ul class="simple">
+<li><p>Strain design algorithms.</p></li>
+<li><p>Knockout or overexpression strategies.</p></li>
+<li><p>Intervention ranking, phenotype optimisation.</p></li>
+</ul>
+<p>Suggested structure:
+<code class="docutils literal notranslate"><span class="pre">src/design/myDesignAlgorithm/</span></code></p>
+<p><strong>3.5. src/reconstruction</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">reconstruction</span></code> for tools that construct, curate or update metabolic
+models. Examples:</p>
+<ul class="simple">
+<li><p>Model reconstruction pipelines.</p></li>
+<li><p>Gap filling algorithms.</p></li>
+<li><p>Model merging and quality control tools.</p></li>
+</ul>
+<p>Suggested structure:
+<code class="docutils literal notranslate"><span class="pre">src/reconstruction/myReconstructionPipeline/</span></code></p>
+<p><strong>3.6. src/visualization</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">visualization</span></code> for tools that generate plots, diagrams or graphical
+summaries. Examples:</p>
+<ul class="simple">
+<li><p>Flux distribution plots.</p></li>
+<li><p>Network diagrams.</p></li>
+<li><p>Pathway visualisation tools.</p></li>
+</ul>
+<p>Suggested structure:
+<code class="docutils literal notranslate"><span class="pre">src/visualization/myVisualisationTools/</span></code></p>
+</section>
+<section id="add-a-test-for-every-new-code-module">
+<h3>4. Add a test for every new code module<a class="headerlink" href="#add-a-test-for-every-new-code-module" title="Permalink to this heading">¶</a></h3>
+<p>Every contribution must include a corresponding <strong>test</strong>. This ensures that new
+code is validated and remains stable.</p>
+<p>Your test should:</p>
+<ul class="simple">
+<li><p>Cover the main functions of your addition.</p></li>
+<li><p>Run without errors in a clean installation.</p></li>
+<li><p>Include checks for both expected behaviour and edge-case failures when possible.</p></li>
+</ul>
+<p>For more information on writing tests, refer to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="guides/testGuide.html#testguide"><span class="std std-ref">Guide for writing a test</span></a></p></li>
+</ul>
+</section>
+<section id="commit-and-push-your-changes">
+<h3>5. Commit and push your changes<a class="headerlink" href="#commit-and-push-your-changes" title="Permalink to this heading">¶</a></h3>
+<p>Once your code and tests are ready, commit your work.</p>
+<ol class="arabic">
+<li><p>Check which files have changed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>status
+</pre></div>
+</div>
+</li>
+<li><p>Stage your new code and tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>src/<span class="w"> </span>path/to/your/files
+git<span class="w"> </span>add<span class="w"> </span>test/<span class="w"> </span>path/to/your/tests
+</pre></div>
+</div>
+</li>
+<li><p>Commit your changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add new analysis tool for XYZ with tests&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Push your changes to your fork:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>develop
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="open-a-pull-request">
+<h3>6. Open a pull request<a class="headerlink" href="#open-a-pull-request" title="Permalink to this heading">¶</a></h3>
+<p>Once your changes are pushed, open a pull request on GitHub.</p>
+<ol class="arabic simple">
+<li><p>Visit your fork:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">https://github.com/&lt;your-username&gt;/cobratoolbox</span></code></p></li>
+</ul>
+</li>
+<li><p>Click <strong>Compare &amp; pull request</strong>.</p></li>
+<li><p>Ensure the PR target is:</p>
+<ul class="simple">
+<li><p>Base repository: <code class="docutils literal notranslate"><span class="pre">opencobra/cobratoolbox</span></code></p></li>
+<li><p>Base branch: <code class="docutils literal notranslate"><span class="pre">develop</span></code></p></li>
+<li><p>Head repository: your fork</p></li>
+<li><p>Head branch: <code class="docutils literal notranslate"><span class="pre">develop</span></code> (or whichever branch you pushed to)</p></li>
+</ul>
+</li>
+<li><p>Describe:</p>
+<ul class="simple">
+<li><p>What your contribution does.</p></li>
+<li><p>Where the code lives in <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p></li>
+<li><p>What tests were added.</p></li>
+<li><p>Any notes for reviewers.</p></li>
+</ul>
+</li>
+<li><p>Submit the pull request.</p></li>
+</ol>
+</section>
+<section id="address-review-comments">
+<h3>7. Address review comments<a class="headerlink" href="#address-review-comments" title="Permalink to this heading">¶</a></h3>
+<p>Maintainers may request revisions. This is normal.</p>
+<ol class="arabic">
+<li><p>Make the changes locally.</p></li>
+<li><p>Commit and push them again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">&quot;Address review comments&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>develop
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Your pull request will update automatically.</p>
+<p>Once approved, it will be merged into the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch of the COBRA Toolbox.</p>
+</section>
+</section>
+<section id="contribute-using-matlab-devtools">
+<h2>Contribute using MATLAB.devTools<a class="headerlink" href="#contribute-using-matlab-devtools" title="Permalink to this heading">¶</a></h2>
+<p>In order to lower the technological barrier to the use of the popular software development tool git, we have developed MATLAB.devTools, a new user-friendly software extension that enables the submission of new COBRA toolbox functions and tutorials.</p>
 <p align="center">
 <img src="https://cdn.jsdelivr.net/gh/opencobra/MATLAB.devTools@e735bd91310e8ef10fab4d3c21833a85bf4b8159/docs/source/_static/img/logo_devTools.png" height="120px" alt="devTools"/>
 </p><p>You can install the
@@ -266,6 +516,523 @@ this
 or the official <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request/">GitHub
 guide</a>
 come in handy.</p>
+</section>
+<section id="unified-cobra-model-field-specification">
+<h2>Unified COBRA model field specification<a class="headerlink" href="#unified-cobra-model-field-specification" title="Permalink to this heading">¶</a></h2>
+<p>To support consistent handling of genome-scale metabolic models across the COBRA Toolbox ecosystem, a unified model field structure has been established. This shared specification ensures that models originating from different repositories, formats or reconstruction pipelines can be interpreted reliably by toolbox functions. By adhering to a common set of field names, dimensions and semantics, users and developers gain full interoperability, improved compatibility with input and output routines, and predictable behaviour when applying analysis methods. The definitions below describe the agreed standard for COBRA models and serve as the reference for constructing, validating and extending model structures.</p>
+<section id="fields-in-the-model-structure">
+<h3>Fields in the model structure<a class="headerlink" href="#fields-in-the-model-structure" title="Permalink to this heading">¶</a></h3>
+<p>The following fields are defined in the COBRA Toolbox. If a field is included in a model, it should match the definition and dimensions listed below.
+The dimensions refer to m (metabolites), n (reactions), g (genes) and c (compartments).
+Singular fields are explicitly marked as <code class="docutils literal notranslate"><span class="pre">scalar</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code> or <code class="docutils literal notranslate"><span class="pre">struct</span></code>.</p>
+<table class="wide-table docutils align-left">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Field Name</strong></p></th>
+<th class="head"><p><strong>Dimension</strong></p></th>
+<th class="head"><p><strong>Field Type</strong></p></th>
+<th class="head"><p><strong>Field Description</strong></p></th>
+<th class="head"><p><strong>COBRA Core Field</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.S</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">n</span></code></p></td>
+<td><p>Sparse or Full Matrix of Double</p></td>
+<td><p>Stoichiometric matrix</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.mets</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Metabolite identifiers</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.b</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Doubles</p></td>
+<td><p>Right hand side values for metabolite constraints</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.csense</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Chars</p></td>
+<td><p>Constraint senses (E, L, G)</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxns</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Reaction identifiers</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.lb</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Doubles</p></td>
+<td><p>Lower bounds</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.ub</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Doubles</p></td>
+<td><p>Upper bounds</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Doubles</p></td>
+<td><p>Objective coefficients</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.osenseStr</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Objective sense: <code class="docutils literal notranslate"><span class="pre">max</span></code> or <code class="docutils literal notranslate"><span class="pre">min</span></code></p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.genes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Gene identifiers</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metNames</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Metabolite names</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.grRules</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Readable gene protein reaction rules</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnNames</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Reaction names</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rules</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Evaluatable GPR rules (Can be calculated from model.grRules using <a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/reconstruction/refinement/generateRules.m">generateRules.m</a>)</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneNames</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Gene names</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.compNames</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Compartment names</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.comps</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Compartment symbols</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.proteinNames</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Protein names</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.proteins</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Proteins associated with genes</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metCharges</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Double</p></td>
+<td><p>Metabolite charges</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metFormulas</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Elemental formulas</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metSmiles</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SMILES strings</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metNotes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Notes for metabolites</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metHMDBID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>HMDB identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metInChIString</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>InChI strings</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metKEGGID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>KEGG metabolite identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metChEBIID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>ChEBI identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metPubChemID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>PubChem identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metMetaNetXID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>MetaNetX metabolite identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metSEEDID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SEED metabolite identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metBiGGID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>BiGG metabolite identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metBioCycID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>BioCyc metabolite identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metEnviPathID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>enviPath identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metLIPIDMAPSID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>LipidMaps identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metReactomeID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Reactome metabolite identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metSABIORKID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SABIO RK metabolite identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.metSLMID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SwissLipids identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.metSBOTerms</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SBO terms for metabolites</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneEntrezID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Entrez gene identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneRefSeqID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>RefSeq gene identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneUniprotID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>UniProt identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneEcoGeneID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>EcoGene identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneKEGGID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>KEGG gene identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneHPRDID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>HPRD identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneASAPID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>ASAP identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneCCDSID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>CCDS identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.geneNCBIProteinID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>NCBI protein identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnGeneMat</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">g</span></code></p></td>
+<td><p>Sparse or Full Matrix</p></td>
+<td><p>Reaction gene incidence matrix</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnConfidenceScores</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Double</p></td>
+<td><p>Reaction confidence scores</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnNotes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Notes on reactions</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnECNumbers</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>EC numbers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnReferences</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Literature references</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnKEGGID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>KEGG reaction identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnKEGGPathways</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>KEGG pathway mappings</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnMetaNetXID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>MetaNetX reaction identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnBRENDAID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>BRENDA reaction identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnBioCycID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>BioCyc reaction identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnReactomeID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Reactome reaction identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnSABIORKID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SABIO RK reaction identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnSEEDID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SEED reaction identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnRheaID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Rhea identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnBiGGID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>BiGG identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.rxnSBOTerms</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>SBO terms for reactions</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.subSystems</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Cell Arrays</p></td>
+<td><p>Subsystem annotations</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.description</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>String</p></td>
+<td><p>General description of the model</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.modelVersion</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>Struct</p></td>
+<td><p>Version metadata</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.modelName</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Descriptive name</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.modelID</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>String</p></td>
+<td><p>Short identifier</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.E</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">x</span> <span class="pre">evars</span></code></p></td>
+<td><p>Sparse or Full Matrix</p></td>
+<td><p>Extra variable constraint matrix</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.evarlb</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evars</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Double</p></td>
+<td><p>Lower bounds of extra variables</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.evarub</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evars</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Double</p></td>
+<td><p>Upper bounds of extra variables</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.evarc</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evars</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Double</p></td>
+<td><p>Objective coefficients for extra variables</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.evars</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evars</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Extra variable identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.evarNames</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">evars</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Extra variable names</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.C</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ctrs</span> <span class="pre">x</span> <span class="pre">n</span></code></p></td>
+<td><p>Sparse or Full Matrix</p></td>
+<td><p>Additional constraints matrix</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.ctrs</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ctrs</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Constraint identifiers</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.ctrNames</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ctrs</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Cell Array of Strings</p></td>
+<td><p>Constraint names</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.d</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ctrs</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Double</p></td>
+<td><p>Right-hand side values for constraints</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model.dsense</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ctrs</span> <span class="pre">x</span> <span class="pre">1</span></code></p></td>
+<td><p>Column Vector of Chars</p></td>
+<td><p>Constraint senses</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model.D</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ctrs</span> <span class="pre">x</span> <span class="pre">evars</span></code></p></td>
+<td><p>Sparse or Full Matrix</p></td>
+<td><p>Coupling terms between extra variables and constraints</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div style="clear: both; margin-bottom: 2em;"></div></section>
+<section id="model-specific-fields">
+<h3>Model Specific Fields<a class="headerlink" href="#model-specific-fields" title="Permalink to this heading">¶</a></h3>
+<p>Some models may contain additional fields that are not part of the COBRA Toolbox standard. Such fields are not used by core functions, and using toolbox operations may cause inconsistencies if these fields depend on reaction or metabolite counts.</p>
+</section>
+<section id="field-support">
+<h3>Field Support<a class="headerlink" href="#field-support" title="Permalink to this heading">¶</a></h3>
+<p>All fields listed above are supported by COBRA Toolbox methods. Toolbox functions will preserve consistency, but manual editing of the model structure may not.
+Use <code class="docutils literal notranslate"><span class="pre">verifyModel(model)</span></code> to check whether a model meets the COBRA Toolbox structural requirements.</p>
+</section>
+<section id="additional-fields">
+<h3>Additional fields<a class="headerlink" href="#additional-fields" title="Permalink to this heading">¶</a></h3>
+<p>Fields beginning with <code class="docutils literal notranslate"><span class="pre">met</span></code>, <code class="docutils literal notranslate"><span class="pre">rxn</span></code>, <code class="docutils literal notranslate"><span class="pre">comp</span></code>, <code class="docutils literal notranslate"><span class="pre">protein</span></code> or <code class="docutils literal notranslate"><span class="pre">gene</span></code> that are not defined above are treated as annotation fields.
+Input and output functions will attempt to map these to identifiers in registered databases where possible.</p>
+</section>
+</section>
 <section id="guide-for-writing-a-test">
 <span id="testguide"></span><h2>Guide for writing a test<a class="headerlink" href="#guide-for-writing-a-test" title="Permalink to this heading">¶</a></h2>
 <p>Before starting to write a test on your own, it might be instructive to
@@ -1095,10 +1862,10 @@ problem in an older version of The COBRA Toolbox?</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cite.html" class="btn btn-default float-right" title="How to cite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="plan.html" class="btn btn-default float-right" title="Development Plan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tutorials/index.html" class="btn btn-default" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="faq.html" class="btn btn-default" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1107,7 +1874,7 @@ problem in an older version of The COBRA Toolbox?</p></li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017-2025, The COBRA Toolbox developers.
+        &copy; Copyright 2017-2026, The COBRA Toolbox developers.
 
     </p>
   </div>
