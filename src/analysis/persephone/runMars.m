@@ -316,6 +316,7 @@ for i = 1:numel(taxaInfo)
     taxaInfo{i}(cellfun(@(x) startsWith(x, taxaDelimiter), taxaInfo{i})) = {""};
 end
 
+
 % Create table with split taxa
 taxaInfo = array2table(cellstr(horzcat(taxaInfo{:})),'VariableNames',levels);
 taxaInfo.Taxon = taxaToSplit; % Add original vector

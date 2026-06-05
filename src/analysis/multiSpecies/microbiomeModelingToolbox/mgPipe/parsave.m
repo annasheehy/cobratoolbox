@@ -14,7 +14,7 @@ function parsave(fname, data)
 if isstruct(data)
     if isfield(data,'rxns')
         model = data;
-        if length(model.rxns) < 300000
+        if length(model.rxns) < 3000000
             save(fname, 'model')
         else
             save(fname, 'model','-v7.3')
