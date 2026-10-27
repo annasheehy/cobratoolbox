@@ -232,7 +232,8 @@ if optionCardiacOutput ~=-1 % skip adjustment of CO
         % Note that (Ca ? Cv) is also known as the arteriovenous oxygen difference.
         % Cardiac Output = (125 ml O2/minute x 1.9) / (200 ml O2/L - 150 ml O2/L) = 4.75 L/minute
         % can be refined to account for haemoglobin content
-        IndividualParameters.CardiacOutput = ((IndividualParameters.VO2*1000)*60*24/(200 - 150));
+        % mL O2/min divided by mL O2 per L blood gives L blood/min; x 1000 for ml/min
+        IndividualParameters.CardiacOutput = ((IndividualParameters.VO2*1000)/(200 - 150))*1000;
         IndividualParameters.CardiacOutput_Note = 'Estimated from VO2 ';
     elseif optionCardiacOutput == 4 %
         %Cardiac Output = (125 ml O2/minute x 1.9) / (200 ml O2/L - 150 ml O2/L) = 4.75 L/minute
@@ -242,7 +243,8 @@ if optionCardiacOutput ~=-1 % skip adjustment of CO
         W = IndividualParameters.bodyWeight;
         H = IndividualParameters.Height;
         BSA=0.007184 * W^0.425* H^0.725 ;
-        IndividualParameters.CardiacOutput = ((0.125*1000*BSA)*60*24/(200 - 150));
+        % mL O2/min divided by mL O2 per L blood gives L blood/min; x 1000 for ml/min
+        IndividualParameters.CardiacOutput = ((0.125*1000*BSA)/(200 - 150))*1000;
         IndividualParameters.CardiacOutput_Note = 'Estimated from surface area ';
     elseif optionCardiacOutput == 5 %
         % estimation of vO2max
@@ -261,7 +263,8 @@ if optionCardiacOutput ~=-1 % skip adjustment of CO
             VO2max = (-0.35* A + 46)*W;
         end
         VO2 = 0.07*VO2max;
-        IndividualParameters.CardiacOutput = ((VO2)*60*24/(200 - 150));
+        % mL O2/min divided by mL O2 per L blood gives L blood/min; x 1000 for ml/min
+        IndividualParameters.CardiacOutput = ((VO2)/(200 - 150))*1000;
     elseif  optionCardiacOutput == 6 %
         %estimation of stroke volume based on Frick
         % http://circ.ahajournals.org/content/circulationaha/14/2/250.full.pdf
