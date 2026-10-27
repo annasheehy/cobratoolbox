@@ -32,6 +32,11 @@ function [iWBM, iWBMcontrol, personalisationOverview] = persWBMetabolomics(sex, 
 %                              is provided. For x, y, z- unit conversion
 %                              will be performed for all known common units of
 %                              measurement.
+%                              Urine concentrations may also be given per mmol
+%                              creatinine ('umol/mmol creatinine'); concentrations
+%                              per litre are divided by the urine creatinine of
+%                              the model (MConUrCreatinineMin/Max), so the
+%                              excretion limit is concentration x urine flow.
 %
 %
 % OPTIONAL:
@@ -121,7 +126,14 @@ if isempty(parser.Results.iWBMcontrol)
     dataBC = {'met', 'minCon', 'maxCon'};
     dataU = {'met', 'minCon', 'maxCon'};
     dataCSF = {'met', 'minCon', 'maxCon'};
-    
+    overviewU = dataU;
+    % physiologicalConstraintsHMDBbased reads urine concentrations per mmol
+    % creatinine and multiplies them by the urine creatinine concentration
+    % (mg/dL -> mmol/L, as there), so urine values per litre are divided by it
+    MWCreat = 113.1179;
+    urCreatMin = IndividualParameters.MConUrCreatinineMin*10/MWCreat;
+    urCreatMax = IndividualParameters.MConUrCreatinineMax*10/MWCreat;
+
     for m=1:size(metabolomicParams, 2)-1
         met = metabolomicParams.Properties.VariableNames{m+1};
         idx = find(strcmp(lower(AllMolecularWeights.metIDs), lower(met)));
@@ -137,6 +149,7 @@ if isempty(parser.Results.iWBMcontrol)
             error('Unit is missing for metabolite %s', met);
         end
         Conc = cell2mat(metabolomicParams{2, m+1});
+        perCreatinine = false;
         switch unit
             case {'µmol/L', 'umol/L', 'uM'}
                 Conc_umolL = Conc;
@@ -150,16 +163,32 @@ if isempty(parser.Results.iWBMcontrol)
                 Conc_umolL = Conc*10^3;
             case 'ng/dL'
                 Conc_umolL = Conc*10^2/MW;
+            case {'µmol/mmol creatinine', 'umol/mmol creatinine', 'mmol/mol creatinine'}
+                % urine only: already in the unit used by physiologicalConstraintsHMDBbased
+                perCreatinine = true;
             otherwise
                 error('Unknown unit: %s', unit);
         end
         comp = string(metabolomicParams{3, m+1});
+        isUrine = strcmp(comp, '[u]')||strcmp(comp, 'urine');
+        if perCreatinine && ~isUrine
+            error('Unit %s is only valid for urine (%s)', unit, met);
+        end
         if strcmp(comp, '[bc]')||strcmp(comp, 'blood')
             % Append to blood table
             dataBC = [dataBC; {met, Conc_umolL * 0.8, Conc_umolL * 1.2}];
-        elseif strcmp(comp, '[u]')||strcmp(comp, 'urine')
-            % Append to urine table
-            dataU = [dataU; {met, Conc_umolL * 0.8, Conc_umolL * 1.2}];
+        elseif isUrine
+            % Append to urine table, per mmol creatinine; the overview keeps umol/L
+            if perCreatinine
+                dataU = [dataU; {met, Conc * 0.8, Conc * 1.2}];
+                overviewU = [overviewU; {met, Conc * 0.8 * urCreatMin, Conc * 1.2 * urCreatMax}];
+            else
+                if urCreatMin <= 0 || urCreatMax <= 0
+                    error('Urine creatinine must be positive to convert urine concentrations (%s)', met);
+                end
+                dataU = [dataU; {met, Conc_umolL * 0.8 / urCreatMin, Conc_umolL * 1.2 / urCreatMax}];
+                overviewU = [overviewU; {met, Conc_umolL * 0.8, Conc_umolL * 1.2}];
+            end
         elseif strcmp(comp, '[csf]')||strcmp(comp, 'csf')||strcmp(comp, 'cerebrospinalfluid')
             % Append to CSF table
             dataCSF = [dataCSF; {met, Conc_umolL * 0.8, Conc_umolL * 1.2}];
@@ -177,7 +206,7 @@ if isempty(parser.Results.iWBMcontrol)
     
     if size(dataU, 1) > 1
         iWBM = physiologicalConstraintsHMDBbased(iWBM, IndividualParameters, '',Type , dataU, 'u');
-        personalisationOverview = [personalisationOverview; [repmat({modelID}, size(dataU, 1) - 1, 1), repmat({'u'}, size(dataU, 1) - 1, 1), dataU(2:end, :)]];
+        personalisationOverview = [personalisationOverview; [repmat({modelID}, size(overviewU, 1) - 1, 1), repmat({'u'}, size(overviewU, 1) - 1, 1), overviewU(2:end, :)]];
     end
     
     if size(dataCSF, 1) > 1
